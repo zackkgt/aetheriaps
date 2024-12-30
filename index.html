@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>GrowShow</title>
+</head>
+<body>
+    <div class="popup-container">
+        <div class="popup">
+            <div class="sidebar">
+                <div class="logo">Menu</div>
+                <div class="menu">
+                    <a href="#" class="menu-item active" onclick="showContent('home', this)">Home</a>
+                    <a href="#" class="menu-item" onclick="showContent('download', this)">Download</a>
+                    <a href="#" class="menu-item" onclick="showContent('current-online', this)">Current Online</a>
+                    <a href="#" class="menu-item" onclick="showContent('wotm', this)">WOTM</a>
+                    <a href="#" class="menu-item" onclick="showContent('statistics', this)">All Roles in Server</a>
+                </div>
+                <div class="links">
+                    <a href="#" class="menu-item" onclick="showContent('statistics', this)">Docs (WIP)</a>
+                    <a href="#" class="menu-item" onclick="showContent('statistics', this)">Discord</a>
+                </div>
+            </div>
+            
+            <div class="content" id="content-home">
+                <h1>GrowShow</h1>
+                <p>
+                    GrowShow is a revolutionary software tailored for fans of the iconic sandbox game Growtopia who want to take their gaming experience to the next level. 
+                    Developed by the "Owner", GrowShow serves as the ultimate tool for creating and customizing your very own private Growtopia server. 
+                    With its powerful features and unparalleled flexibility, it redefines what players and server administrators can do within the Growtopia universe.
+                </p>
+                <p>
+                    GrowShow isn't just about recreating the standard experience; it's about pushing boundaries. The software comes loaded with a variety of never-seen-before features that enhance gameplay and server management, such as:
+                </p>
+                <ul>
+                    <li>Lua scripting support - Allowing you to write custom features and addons for your GrowShow server.</li>
+                    <li>Maximum performance & security - GrowShow comes with multi-threading support (including sub-servers), it is the only source that can achieve such awesome performance to even run on a toaster! GrowShow does not and never had any backdoors. There are no duplication glitches and no other game-breaking issues!</li>
+                    <li>Everything is customizable - One of the best features we offer is that you can customize pretty much everything you can dream of and it's absolutely user friendly way to do so!</li>
+                    <li>Active community - GrowShow community is constantly growing, people share their awesome creations such as scripts, worlds, it is very easy to get started with GrowShow!</li>
+                    <li>Fresh source - Well if you're wondering is GrowShow based on some other source? The answer is NO! GrowShow has been created from scratch over the past few years!</li>
+                </ul>
+                <p>And that's just a little part of what GrowShow offers!</p>
+            </div>
+
+            <div class="content" id="content-download" style="display: none;">
+                <h1>Download GrowShow</h1>
+                <p>To get started with GrowShow, simply download the latest version below:</p>
+                <a href="#" class="menu-item">Download GrowShow v1.0</a>
+            </div>
+
+            <div class="content" id="content-current-online" style="display: none;">
+                <h1>Current Online Players</h1>
+                <p>Here you can view the list of currently online players on your server:</p>
+            </div>
+
+            <div class="content" id="content-wotm" style="display: none;">
+                <h1>WOTM (World of the Month)</h1>
+                <p>Here you can display the featured World of the Month (WOTM) information:</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(content, element) {
+            document.querySelectorAll('.content').forEach(function (section) {
+                section.style.display = 'none';
+            });
+
+            if (content === 'home') {
+                document.getElementById('content-home').style.display = 'block';
+            } else if (content === 'download') {
+                document.getElementById('content-download').style.display = 'block';
+            } else if (content === 'current-online') {
+                document.getElementById('content-current-online').style.display = 'block';
+            } else if (content === 'wotm') {
+                document.getElementById('content-wotm').style.display = 'block';
+            }
+
+            document.querySelectorAll('.menu-item').forEach(function (item) {
+                item.classList.remove('active');
+            });
+
+            element.classList.add('active');
+        }
+
+        showContent('home', document.querySelector('.menu-item.active'));
+    </script>
+</body>
+</html>
